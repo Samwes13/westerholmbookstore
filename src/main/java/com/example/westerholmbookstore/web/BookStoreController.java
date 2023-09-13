@@ -25,28 +25,28 @@ public class BookStoreController {
     @GetMapping("/booklist")
     public String booklist(Model model) {
     	Iterable<Book> books = repository.findAll();
-        // Add the list of books to the model
+        
         model.addAttribute("books", books);
 
-        // Return the name of the HTML template to be rendered
+       
         return "booklist";
         
     }
- // New method to display add book form
+ 
     @GetMapping("/addbook")
     public String addBookForm(Model model) {
         model.addAttribute("book", new Book());
         return "addbook";
     }
     
-    // New method to handle adding a book
+    
     @PostMapping("/addbook")
     public String addBook(@ModelAttribute Book book) {
         repository.save(book);
         return "redirect:/booklist";
     }
     
-    // New method to handle deleting a book
+    
     @GetMapping("/delete/{id}")
     public String deleteBook(@PathVariable Long id) {
         repository.deleteById(id);
@@ -54,7 +54,7 @@ public class BookStoreController {
  
     }
     
- // New method to display edit book form
+
     @GetMapping("/editbook/{id}")
     public String editBookForm(@PathVariable Long id, Model model) {
         Optional<Book> optionalBook = repository.findById(id);
@@ -68,7 +68,7 @@ public class BookStoreController {
         }
     }
     
-    // New method to handle saving edited book
+
     @PostMapping("/editbook/{id}")
     public String editBook(@PathVariable Long id, @ModelAttribute Book editedBook) {
         Optional<Book> optionalBook = repository.findById(id);
