@@ -1,6 +1,10 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
+=======
+<html lang="en">
+>>>>>>> 118673c21236a5a3e4a6d8c8dd8f5d145656de62
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,19 +21,30 @@
                 <th>Title</th>
                 <th>ISBN</th>
                 <th>Year</th>
+<<<<<<< HEAD
                 <th>Category</th>
+=======
+>>>>>>> 118673c21236a5a3e4a6d8c8dd8f5d145656de62
             </tr>
         </thead>
         <tbody>
             <!-- Iterate through the list of books and display the information -->
+<<<<<<< HEAD
             <th:block th:each="book : ${books}" >
+=======
+            <th:block th:each="book : ${books}">
+>>>>>>> 118673c21236a5a3e4a6d8c8dd8f5d145656de62
                 <tr>
                     <td th:text="${book.title}"></td>
                     <td th:text="${book.author}"></td>
                     <td th:text="${book.isbn}"></td>
                     <td th:text="${book.publicationYear}"></td>
+<<<<<<< HEAD
                      <td th:if="${book.category != null}" th:text="${book.category.nameOfCategory}"></td>
                     <td><a th:href="@{/editbook/{id}(id=${book.id})}">Edit</a></td> 
+=======
+                    <td><a th:href="@{/editbook/{id}(id=${book.id})}">Edit</a></td>
+>>>>>>> 118673c21236a5a3e4a6d8c8dd8f5d145656de62
                     <td><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
                     
                 </tr>
