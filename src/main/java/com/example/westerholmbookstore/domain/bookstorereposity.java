@@ -2,8 +2,11 @@ package com.example.westerholmbookstore.domain;
 
 
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
 
-public interface bookstorereposity extends JpaRepository<Book, Long> {
-    // You can add custom query methods here if needed
+import org.springframework.data.repository.CrudRepository;
+
+public interface bookstorereposity extends CrudRepository<Book, Long> {
+    
+	List<Book> findByTitle(String title);
 }

@@ -1,18 +1,15 @@
 package com.example.westerholmbookstore.domain;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 118673c21236a5a3e4a6d8c8dd8f5d145656de62
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-<<<<<<< HEAD
+
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-=======
->>>>>>> 118673c21236a5a3e4a6d8c8dd8f5d145656de62
+
+
 
 @Entity
 public class Book {
@@ -21,29 +18,26 @@ public class Book {
 	    @GeneratedValue(strategy = GenerationType.AUTO)
 	    private Long id;
 	    private String title, author,  publicationYear,  isbn, price;
-<<<<<<< HEAD
+
 	    
-	    // Tällä voidaan yhdistään deparment tiedostoon
+	    // Tällä voidaan yhdistään category tiedostoon
 	    @ManyToOne
-	    @JoinColumn(name = "categoryid")
+	    @JoinColumn(name = "categoryId")
 	    private Category category;
-=======
->>>>>>> 118673c21236a5a3e4a6d8c8dd8f5d145656de62
+
 
 	    // Default constructor
 	    public Book() {}
 
-<<<<<<< HEAD
+
 	    public Book(String title, String author, String publicationYear, String isbn, String price, Category category) {
-=======
-	    public Book(String title, String author, String publicationYear, String isbn, String price) {
->>>>>>> 118673c21236a5a3e4a6d8c8dd8f5d145656de62
+
 	        this.title = title;
 	        this.author = author;
 	        this.publicationYear = publicationYear;
 	        this.isbn = isbn;
 	        this.price = price;
-<<<<<<< HEAD
+
 	        this.category = category;
 	    }
 
@@ -51,14 +45,25 @@ public class Book {
 			return category;
 		}
 
+		@Override
+		public String toString() {
+			if (this.category != null)
+			return "Book [id=" + id + ", title=" + title + ", author=" + author + ", publicationYear=" + publicationYear
+					+ ", isbn=" + isbn + ", price=" + price + ", category=" + this.getCategory() + "]";
+			else
+				return "Book [id=" + id + ", title=" + title + ", author=" + author + ", publicationYear=" + publicationYear
+						+ ", isbn=" + isbn + ", price=" + price + "]";
+		}
+	
+			
 		public void setCategory(Category category) {
 			this.category = category;
 		}
 
-=======
-	    }
 
->>>>>>> 118673c21236a5a3e4a6d8c8dd8f5d145656de62
+	    
+
+
 		public Long getId() {
 			return id;
 		}
@@ -110,7 +115,9 @@ public class Book {
 	    // Getters and setters...
 	}
 
-	
+	/*
+
+	    public Book(String title, String author, String publicationYear, String isbn, String price) {^*/
 	
 
 	

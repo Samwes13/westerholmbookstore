@@ -9,9 +9,10 @@
 </head>
 <body>
     <h1>Edit Book</h1>
-<<<<<<< HEAD
+
     <form th:object="${book}" th:action="@{/save}" method="post">
-        <input type="hidden" th:field="*{id}" />
+
+        <input type="hidden" id="id" th:field="*{id}" />
         
         <label for="title">Title:</label>
         <input type="text" id="title" th:field="*{title}"><br>
@@ -27,43 +28,22 @@
         
         <label for="price">Price:</label>
         <input type="text" id="price" th:field="*{price}"><br>
-        
-        <label for="category">Category: </label>
-		<label for="category">Category: </label>
-		<select id="category" name="categoryid">
+        <div>
+		<label for="cate">Category: </label>
+		<select id="cate" th:field="*{category}" class="from-control">
 		    <option th:each="category : ${categories}" 
-		            th:value="${category.categoryid}" 
-		            th:text="${category.nameOfCategory}">
+		            th:value="${category.categoryId}" 
+		            th:text="${category.name}">
 		    </option>
 		</select>
-
+</div>
 
         
         <input type="submit" value="Save Changes">
     </form>
-=======
-    <form action="/editbook/{id}" method="post" th:object="${book}" th:action="@{/editbook/{id}(id=${book.id})}">
-    <input type="hidden" id="id" th:value="${book.id}">
-    
-    <label for="title">Title:</label>
-    <input type="text" id="title" th:field="*{title}"><br>
-    
-    <label for="author">Author:</label>
-    <input type="text" id="author" th:field="*{author}"><br>
-    
-    <label for="publicationYear">Publication Year:</label>
-    <input type="text" id="publicationYear" th:field="*{publicationYear}"><br>
-    
-    <label for="isbn">ISBN:</label>
-    <input type="text" id="isbn" th:field="*{isbn}"><br>
-    
-    <label for="price">Price:</label>
-    <input type="text" id="price" th:field="*{price}"><br>
-    
-    <input type="submit" value="Save Changes">
-</form>
 
 
->>>>>>> 118673c21236a5a3e4a6d8c8dd8f5d145656de62
+
+
 </body>
 </html>

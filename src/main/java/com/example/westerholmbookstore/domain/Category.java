@@ -2,6 +2,7 @@ package com.example.westerholmbookstore.domain;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -12,25 +13,30 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Category {
+	@Override
+	public String toString() {
+		return "Category [categoryId=" + categoryId + "]";
+	}
+
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long categoryid;
-	private String nameOfCategory;
+	private Long categoryId;
+	private String name;
 	
-	public Long getCategoryid() {
-		return categoryid;
+	public Long getCategoryId() {
+		return categoryId;
 	}
 
-	public void setCategoryid(Long categoryid) {
-		this.categoryid = categoryid;
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
 	}
 
-	public String getNameOfCategory() {
-		return nameOfCategory;
+	public String getName() {
+		return name;
 	}
 
-	public void setNameOfCategory(String nameOfCategory) {
-		this.nameOfCategory = nameOfCategory;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public List<Book> getBooks() {
@@ -40,15 +46,16 @@ public class Category {
 	public void setBooks(List<Book> books) {
 		this.books = books;
 	}
-
+	
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
 	private List<Book> books;
 	
 	public Category() {}
 	
-	public Category(String nameOfCategory) {
+	public Category(String name) {
 		super();
-		this.nameOfCategory = nameOfCategory;
+		this.name = name;
 	}
 	
 
